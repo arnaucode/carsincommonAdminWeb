@@ -1,0 +1,18 @@
+{
+  "name": "carsincommonAdminWeb",
+  "description": "carsincommonAdminWeb",
+  "version": "0.0.0",
+  "homepage": "https://github.com/arnaucode/carsincommonAdmin",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.1",
+    "angular-chart.js": "^1.1.1",
+    "vis": "^4.18.1",
+    "mui": "^0.9.20",
+    "angular-bootstrap-material": "abm#^0.1.4",
+    "angular-bootstrap": "^2.5.0",
+    "angular-messages": "^1.6.5"
+  }
+}
