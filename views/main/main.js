@@ -9,6 +9,27 @@ angular.module('app.main', ['ngRoute'])
   });
 }])
 
-.controller('MainCtrl', [function() {
+.controller('MainCtrl', function($scope, $http) {
+    $scope.users = [];
+    $scope.loadMorePagination = true;
+    $scope.page = 0;
 
-}]);
+    $http.get(urlapi + 'users?page=' + $scope.page)
+      .then(function(data) {
+        console.log('data success');
+        console.log(data);
+        $scope.users=data.data;
+
+      }, function(data) {
+        console.log('data error');
+      });
+      $http.get(urlapi + 'travels?page=' + $scope.page)
+        .then(function(data) {
+          console.log('data success');
+          console.log(data);
+          $scope.travels=data.data;
+
+        }, function(data) {
+          console.log('data error');
+        });
+});
