@@ -31,4 +31,19 @@ angular.module('app.user', ['ngRoute'])
                 console.log('data error');
                 $scope.$broadcast('scroll.refreshComplete'); //refresher stop
             });
+
+        //delete user
+        $scope.deleteUser = function() {
+            console.log("delete user: " + $routeParams.userid);
+            $http({
+                    url: urlapi + 'admin/users/id/' + $routeParams.userid,
+                    method: "DELETE"
+                })
+                .then(function(data) {
+                        window.location = "#!/main/";
+                    },
+                    function(data) { // optional
+                        // failed
+                    });
+        };
     });

@@ -57,4 +57,23 @@ angular.module('app.travel', ['ngRoute', 'ui-leaflet'])
                 console.log('data error');
             });
 
+
+        //delete travel
+        $scope.deleteTravel = function() {
+            console.log("delete travel: " + $routeParams.travelid);
+            $http({
+                    url: urlapi + '/admin/travels/id/' + $routeParams.travelid,
+                    method: "DELETE"
+                })
+                .then(function(data) {
+                        console.log(data);
+                        $scope.travels = data.data;
+
+                        window.location = "#!/main/";
+                    },
+                    function(data) { // optional
+                        // failed
+                    });
+        };
+
     });
