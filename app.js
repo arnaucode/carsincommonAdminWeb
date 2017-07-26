@@ -13,7 +13,8 @@ angular.module('adminApp', [
   'app.login',
   'app.main',
   'app.user',
-  'app.travel'
+  'app.travel',
+  'app.network'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
