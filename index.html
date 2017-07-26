@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+
+
     <link href="css/style.css" rel="stylesheet">
     <link href="css/colors.css" rel="stylesheet">
 
@@ -21,6 +24,8 @@
 </head>
 
 <body ng-app="adminApp">
+    <div ng-include="'views/navbar.html'"></div>
+
     <div ng-view></div>
 
 
@@ -45,10 +50,10 @@
 
 
     <!-- openstreetmaps angular - leaflet -->
-    <!--<script src="bower_components/leaflet/dist/leaflet.js"></script>
-        <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
-        <script src="bower_components/ui-leaflet/dist/ui-leaflet.js"></script>
-        <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />-->
+    <script src="bower_components/leaflet/dist/leaflet.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/ui-leaflet/dist/ui-leaflet.js"></script>
+    <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
 
     <script type="text/javascript" src="bower_components/vis/dist/vis.min.js"></script>
     <link href="bower_components/vis/dist/vis.min.css" rel="stylesheet" type="text/css" />
@@ -57,6 +62,8 @@
 
     <!-- your app's js -->
     <script src="app.js"></script>
+    <script src="views/navbar.js"></script>
+    <script src="views/login/login.js"></script>
     <script src="views/main/main.js"></script>
     <script src="views/user/user.js"></script>
     <script src="views/travel/travel.js"></script>

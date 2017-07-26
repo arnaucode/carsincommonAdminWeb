@@ -9,6 +9,8 @@ angular.module('adminApp', [
   'ngRoute',
   'ngMessages',
   'angularBootstrapMaterial',
+  'app.navbar',
+  'app.login',
   'app.main',
   'app.user',
   'app.travel'
@@ -16,5 +18,56 @@ angular.module('adminApp', [
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/main'});
-}]);
+  //$routeProvider.otherwise({redirectTo: '/main'});
+  if((localStorage.getItem('cic_admin_token')))
+    {
+      console.log(window.location.hash);
+      if(window.location.hash==='#!/login')
+      {
+        window.location='#!/main';
+      }
+
+      $routeProvider.otherwise({redirectTo: '/main'});
+    }else{
+      if(window.location!=='#!/login')
+      {
+        console.log('app, user no logged');
+
+        localStorage.removeItem('cic_admin_token');
+        localStorage.removeItem('cic_admin_userdata');
+        window.location='#!/login';
+        $routeProvider.otherwise({redirectTo: '/login'});
+      }
+    }
+}])
+
+.factory('httpInterceptor', function httpInterceptor () {
+  return {
+    request: function(config) {
+      return config;
+    },
+
+    requestError: function(config) {
+      return config;
+    },
+
+    response: function(res) {
+      return res;
+    },
+
+    responseError: function(res) {
+      return res;
+    }
+  };
+})
+.factory('api', function ($http) {
+	return {
+		init: function () {
+      $http.defaults.headers.common['X-Access-Token'] = localStorage.getItem('cic_admin_token');
+      $http.defaults.headers.post['X-Access-Token'] = localStorage.getItem('cic_admin_token');
+		}
+	};
+})
+.run(function (api) {
+	api.init();
+});

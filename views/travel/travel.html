@@ -1,6 +1,3 @@
-<div ng-include="'views/navbar.html'"></div>
-
-
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
@@ -9,11 +6,25 @@
                     <h3 class="panel-title">{{travel.title}}</h3>
                 </div>
                 <div class="panel-body">
+                    <div class="list-group">
+                        <a ng-href="#!/user/{{user._id}}" class="list-group-item">
+                            <div class="row-picture">
+                                <img class="circle" ng-src="{{travel.user.avatar}}" alt="icon">
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">{{travel.user.username}}</h4>
+
+                                <p class="list-group-item-text">@{{travel.user.telegram}}</p>
+                                <p class="list-group-item-text">{{travel.user.phone}}</p>
+                            </div>
+                            <div class="list-group-separator"></div>
+                        </a>
+                    </div>
                     <p>
-                        From: {{travel.from.name}}
+                        From: <b>{{travel.from.name}}</b>
                     </p>
                     <p>
-                        To: {{travel.from.name}}
+                        To: <b>{{travel.from.name}}</b>
                     </p>
                     <p ng-show="travel.package">
                         Can transport package
@@ -25,11 +36,12 @@
                     <h3 class="panel-title">Map</h3>
                 </div>
                 <div class="panel-body">
-                    here the map
+                    <leaflet width="100%" height="300px" markers="markers" center="center"
+                    tiles="tiles" id="map-simple-map"></leaflet>
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="panel">
                 <div class="panel-heading c_deepPurple300">
                     <h3 class="panel-title">{{travel.joinPetitions.length}} Pendent joins</h3>
@@ -52,7 +64,7 @@
             </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="panel">
                 <div class="panel-heading c_deepPurple300">
                     <h3 class="panel-title">Accepted users {{travel.joins.length}}/{{travel.seats}}</h3>
@@ -71,6 +83,18 @@
                             <div class="list-group-separator"></div>
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-2">
+            <div class="panel">
+                <div class="panel-heading c_deepPurple500">
+                    <h3 class="panel-title">Admin actions</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="btn btn-block btn-sm c_orange300">Ban travel</div>
+                    <div class="btn btn-block btn-sm c_red300">Delete travel</div>
                 </div>
             </div>
         </div>
