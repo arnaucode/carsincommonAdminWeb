@@ -10,10 +10,16 @@ angular.module('app.navbar', ['ngRoute'])
     }])
 
     .controller('NavbarCtrl', function($scope, $http, $routeParams, $location) {
+        $scope.searchString="";
         $scope.locationHash = $location.path();
         console.log($scope.locationHash);
         $scope.goBack = function() {
             console.log("goBack");
             window.history.back();
+        };
+
+        $scope.search = function() {
+            console.log($scope.searchString);
+            window.location.href="#!/search/" + $scope.searchString;
         };
     });

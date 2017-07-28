@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('app.network', ['ngRoute'])
+angular.module('app.userNetwork', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/network', {
-            templateUrl: 'views/network/network.html',
-            controller: 'NetworkCtrl'
+        $routeProvider.when('/userNetwork', {
+            templateUrl: 'views/userNetwork/userNetwork.html',
+            controller: 'UserNetworkCtrl'
         });
     }])
 
-    .controller('NetworkCtrl', function($scope, $http, $routeParams) {
+    .controller('UserNetworkCtrl', function($scope, $http, $routeParams) {
         $scope.data = [];
         $scope.nodes = [];
         $scope.edges = [];
@@ -71,5 +71,28 @@ angular.module('app.network', ['ngRoute'])
             }, function(data, status, headers, config) {
                 console.log('data error');
             });
+        $http.get(urlapi + 'users?page=' + $scope.page)
+          .then(function(data) {
+            console.log('data success');
+            console.log(data);
+            $scope.users=data.data;
+
+          }, function(data) {
+            console.log('data error');
+          });
+
+          $scope.getUserNetwork = function(user) {
+              console.log(user);
+              $http.get(urlapi + 'admin/user/network/' + user._id)
+                  .then(function(data, status, headers, config) {
+                      console.log('data success');
+                      console.log(data);
+                      $scope.nodes = data.data.nodes;
+                      $scope.edges = data.data.edges;
+                      $scope.showMap();
+                  }, function(data, status, headers, config) {
+                      console.log('data error');
+                  });
+          };
 
     });
