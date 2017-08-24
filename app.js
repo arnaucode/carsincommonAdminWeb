@@ -2,7 +2,7 @@
 
 var urlapi = "http://localhost:3000/api/";
 //var urlapi = "http://192.168.1.36:3000/api/";
-//var urlapi = "http://51.255.193.106:3000/api/";
+//var urlapi = "http://37.59.123.45:3000/api/";
 
 // Declare app level module which depends on views, and components
 angular.module('adminApp', [
@@ -10,6 +10,7 @@ angular.module('adminApp', [
   'ngMessages',
   'angularBootstrapMaterial',
   'app.navbar',
+  'app.signup',
   'app.login',
   'app.main',
   'app.search',
@@ -26,14 +27,14 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   if((localStorage.getItem('cic_admin_token')))
     {
       console.log(window.location.hash);
-      if(window.location.hash==='#!/login')
+      if((window.location.hash==='#!/login')||(window.location.hash==='#!/signup'))
       {
         window.location='#!/main';
       }
 
       $routeProvider.otherwise({redirectTo: '/main'});
     }else{
-      if(window.location!=='#!/login')
+      if((window.location!=='#!/login')||(window.location!=='#!/signup'))
       {
         console.log('app, user no logged');
 
