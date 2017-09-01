@@ -1,8 +1,8 @@
 'use strict';
 
-var urlapi = "http://localhost:3000/api/";
+//var urlapi = "http://localhost:3000/api/";
 //var urlapi = "http://192.168.1.36:3000/api/";
-//var urlapi = "http://37.59.123.45:3000/api/";
+var urlapi = "http://37.59.123.45:3000/api/";
 
 // Declare app level module which depends on views, and components
 angular.module('adminApp', [

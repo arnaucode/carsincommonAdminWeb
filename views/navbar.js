@@ -10,7 +10,7 @@ angular.module('app.navbar', ['ngRoute'])
     }])
 
     .controller('NavbarCtrl', function($scope, $http, $routeParams, $location) {
-        $scope.searchString="";
+        $scope.searchString = "";
         $scope.locationHash = $location.path();
         console.log($scope.locationHash);
         $scope.goBack = function() {
@@ -20,6 +20,11 @@ angular.module('app.navbar', ['ngRoute'])
 
         $scope.search = function() {
             console.log($scope.searchString);
-            window.location.href="#!/search/" + $scope.searchString;
+            window.location.href = "#!/search/" + $scope.searchString;
+        };
+        $scope.logout = function() {
+            localStorage.removeItem("cic_admin_token");
+            localStorage.removeItem("cic_admin_userdata");
+            window.location.reload();
         };
     });

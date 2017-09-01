@@ -46,4 +46,32 @@ angular.module('app.user', ['ngRoute'])
                         // failed
                     });
         };
+        $scope.validateUser = function() {
+            $http({
+                    url: urlapi + 'admin/users/validate/id/' + $routeParams.userid,
+                    method: "POST",
+                    data: {}
+                })
+                .then(function(data) {
+                        /*window.location = "#!/main/";*/
+                        $scope.user = data.data;
+                    },
+                    function(data) { // optional
+                        // failed
+                    });
+        };
+        $scope.unvalidateUser = function() {
+            $http({
+                    url: urlapi + 'admin/users/unvalidate/id/' + $routeParams.userid,
+                    method: "POST",
+                    data: {}
+                })
+                .then(function(data) {
+                        /*window.location = "#!/main/";*/
+                        $scope.user = data.data;
+                    },
+                    function(data) { // optional
+                        // failed
+                    });
+        };
     });
