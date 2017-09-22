@@ -1,6 +1,6 @@
-# carsincommonAdminWeb
+# commonroutesAdminWeb
 
-- server code: https://github.com/arnaucode/carsincommonServer
-- frontend app code: https://github.com/arnaucode/carsincommonApp
+- server code: https://github.com/arnaucode/commonroutesServer
+- frontend app code: https://github.com/arnaucode/commonroutesApp
 - images server: https://github.com/arnaucode/goImgServer
-- admin web: https://github.com/arnaucode/carsincommonAdminWeb
+- admin web: https://github.com/arnaucode/commonroutesAdminWeb

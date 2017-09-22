@@ -11,11 +11,9 @@ angular.module('app.main', ['ngRoute'])
 
     .controller('MainCtrl', function($scope, $http) {
         $scope.users = [];
-        $scope.travels = [];
         $scope.loadMorePagination = true;
-        $scope.page = 0;
-
-        $http.get(urlapi + 'users?page=' + $scope.page)
+        $scope.pageUsers = 0;
+        $http.get(urlapi + 'users?page=' + $scope.pageUsers)
             .then(function(data) {
                 console.log('data success');
                 console.log(data);
@@ -24,11 +22,26 @@ angular.module('app.main', ['ngRoute'])
             }, function(data) {
                 console.log('data error');
             });
-        $http.get(urlapi + 'travels?page=' + $scope.page)
+
+        $scope.travels = [];
+        $scope.pageTravels = 0;
+        $http.get(urlapi + 'travels?page=' + $scope.pageTravels)
             .then(function(data) {
                 console.log('data success');
                 console.log(data);
                 $scope.travels = data.data;
+
+            }, function(data) {
+                console.log('data error');
+            });
+
+        $scope.admins=[];
+        $scope.pageAdmins = 0;
+        $http.get(urlapi + 'admins?page=' + $scope.pageAdmins)
+            .then(function(data) {
+                console.log('data success');
+                console.log(data);
+                $scope.admins = data.data;
 
             }, function(data) {
                 console.log('data error');

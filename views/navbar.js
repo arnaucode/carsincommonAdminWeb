@@ -22,6 +22,11 @@ angular.module('app.navbar', ['ngRoute'])
             console.log($scope.searchString);
             window.location.href = "#!/search/" + $scope.searchString;
         };
+        if (localStorage.getItem("cic_admin_userdata")) {
+          $scope.storageuser = JSON.parse(localStorage.getItem("cic_admin_userdata"));
+          console.log($scope.storageuser);
+        }
+
         $scope.logout = function() {
             localStorage.removeItem("cic_admin_token");
             localStorage.removeItem("cic_admin_userdata");

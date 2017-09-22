@@ -102,6 +102,7 @@
                 <div class="panel-body">
                     <!--<div class="btn btn-block btn-sm c_orange300">Ban user</div>-->
                     <div ng-show="!user.validated" ng-click="validateUser()" class="btn btn-block btn-sm c_deepPurple300">Validate User</div>
+                    <div ng-show="user.validated">Validated by: {{user.validatedBy.username}}</div>
                     <div ng-show="user.validated" ng-click="unvalidateUser()" class="btn btn-block btn-sm c_red200">Unvalidate User</div>
                     <div ng-click="deleteUser()" class="btn btn-block btn-sm c_red300">Delete user</div>
                 </div>

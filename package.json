@@ -1,9 +1,9 @@
 {
-  "name": "carsincommonAdminWeb",
+  "name": "commonroutesAdminWeb",
   "private": true,
   "version": "0.0.0",
-  "description": "carsincommonAdminWeb",
-  "repository": "https://github.com/arnaucode/carsincommonAdmin",
+  "description": "commonroutesAdminWeb",
+  "repository": "https://github.com/arnaucode/commonroutesAdminWeb",
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.7.7",
